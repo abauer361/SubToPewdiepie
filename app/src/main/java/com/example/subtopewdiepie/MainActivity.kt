@@ -7,17 +7,18 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private var subCounter: Long = 0
+    private var user = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        intent.extras?.get("username")
+        user = intent.extras?.get("username").toString()
 
         if (savedInstanceState != null) {
-            updateCounter(savedInstanceState.getLong(SUB_COUNTER_KEY,  0))
-        } else if (getStore().contains(SUB_COUNTER_KEY)) {
-            updateCounter(getStore().getLong(SUB_COUNTER_KEY, 0))
+            updateCounter(savedInstanceState.getLong(user,  0))
+        } else if (getStore().contains(user)) {
+            updateCounter(getStore().getLong(user, 0))
         }
 
         subscribeButton.setOnClickListener {
@@ -36,17 +37,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         outState?.run {
-            putLong(SUB_COUNTER_KEY, subCounter)
+            putLong(user, subCounter)
         }
         super.onSaveInstanceState(outState)
     }
 
     override fun onPause() {
         super.onPause()
-        getStore().edit().putLong(SUB_COUNTER_KEY, subCounter).apply()
+        getStore().edit().putLong(user, subCounter).apply()
     }
 
-    companion object {
+/*    companion object {
         private const val SUB_COUNTER_KEY = "subCounterKey"
-    }
+    }*/
 }
