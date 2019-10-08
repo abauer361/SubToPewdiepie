@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         subscribeButton.setOnClickListener {
             subCounter++
             myTextView.text = subCounter.toString()
+
         }
 
     }

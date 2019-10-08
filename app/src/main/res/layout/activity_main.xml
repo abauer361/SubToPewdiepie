@@ -6,34 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/myImage"
-        android:layout_width="106dp"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myTextView"
-        app:srcCompat="@mipmap/ic_launcher" />
-
-    <!--<ImageButton
-        android:id="@+id/subscribeButton"
-        android:layout_width="226dp"
-        android:layout_height="131dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginLeft="92dp"
-        android:layout_marginTop="217dp"
-        android:layout_marginEnd="93dp"
-        android:layout_marginRight="93dp"
-        android:background="@drawable/sub_button_selector"
-        android:scaleType="centerInside"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/sub" /> -->
 
     <ImageButton
         android:id="@+id/subscribeButton"
@@ -66,6 +38,29 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.43" />
+
+    <!--<ImageView
+        android:id="@+id/bro_fist_punch"
+        android:layout_width="125"
+        android:layout_height="125"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myTextView"
+        app:srcCompat="@drawable/fist_pewds_punch" />-->
+
+    <ImageView
+        android:id="@+id/bro_fist"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="160dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myTextView"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/fist_pewds" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

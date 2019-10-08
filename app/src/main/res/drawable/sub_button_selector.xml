@@ -6,5 +6,4 @@
         <bitmap android:gravity="center|bottom|clip_vertical"
                 android:src="@drawable/sub"></bitmap>
     </item>
-
 </selector>
