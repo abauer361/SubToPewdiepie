@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/sub_clicked" android:state_pressed="true"></item>
+    <item android:drawable="@drawable/sub"></item>
+    <item>
+        <bitmap android:gravity="center|bottom|clip_vertical"
+                android:src="@drawable/sub"></bitmap>
+    </item>
+
+</selector>
