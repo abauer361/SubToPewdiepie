@@ -3,37 +3,38 @@ package com.example.subtopewdiepie
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var countViewModel: CountViewModel
+
     private var subCounter: Long = 0
-    private var user = ""
+    private fun getUsername() = intent.extras?.get("username").toString().toLowerCase(Locale.US)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        user = intent.extras?.get("username").toString()
-
-        if (savedInstanceState != null) {
-            updateCounter(savedInstanceState.getLong(user,  0))
-        } else if (getStore().contains(user)) {
-            updateCounter(getStore().getLong(user, 0))
-        }
+        countViewModel = ViewModelProviders.of(this).get(CountViewModel::class.java)
+        countViewModel.getUserCount(getUsername()).observe(this,
+            androidx.lifecycle.Observer { updateCounter(it) })
 
         subscribeButton.setOnClickListener {
-            subCounter++
-            myTextView.text = subCounter.toString()
-
+            countViewModel.setUserCount(getUsername(), subCounter + 1)
         }
 
     }
 
-    private fun updateCounter(num : Long){
+    private fun updateCounter(num: Long) {
         subCounter = num
         myTextView.text = subCounter.toString()
     }
+}
 
+
+/*
     private fun getStore() = getPreferences(Context.MODE_PRIVATE)
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -48,7 +49,6 @@ class MainActivity : AppCompatActivity() {
         getStore().edit().putLong(user, subCounter).apply()
     }
 
-/*    companion object {
+ companion object {
         private const val SUB_COUNTER_KEY = "subCounterKey"
     }*/
-}
